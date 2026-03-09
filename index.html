@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>講義音声ノートAI 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>講義音声ノートAI</h1>
+
+        <section class="settings">
+            <input type="password" id="apiKey" placeholder="Gemini API Keyを入力">
+            <button onclick="saveKey()">キーを保存</button>
+        </section>
+
+        <section class="main-ui">
+            <input type="file" id="audioFile" accept="audio/*">
+            <button id="runBtn" onclick="processAudio()">分析を実行する</button>
+        </section>
+
+        <div id="status"></div>
+
+        <section class="results">
+            <h3>📝 1. 文字起こし（全文）</h3>
+            <textarea id="transcription" readonly></textarea>
+            <button onclick="copyText('transcription')">全文コピー</button>
+
+            <h3>✨ 2. 要約（3行）</h3>
+            <textarea id="summary" readonly style="height: 100px;"></textarea>
+            <button onclick="copyText('summary')">要約コピー</button>
+
+            <h3>📌 3. 要点（箇条書き）</h3>
+            <textarea id="points" readonly style="height: 120px;"></textarea>
+            <button onclick="copyText('points')">要点コピー</button>
+        </section>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
